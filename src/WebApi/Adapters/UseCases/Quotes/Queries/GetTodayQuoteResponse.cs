@@ -1,11 +1,11 @@
-﻿namespace Hexagon.Application.UseCases;
+﻿namespace Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries;
 
-public class QuoteDto
+public class GetTodayQuoteResponse
 {
     public string Text { get; set; }
     public string Author { get; set; }
 
-    public QuoteDto()
+    public GetTodayQuoteResponse()
     {
         Text = string.Empty;
         Author = string.Empty;

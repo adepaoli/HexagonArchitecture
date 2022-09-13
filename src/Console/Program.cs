@@ -1,5 +1,4 @@
 ﻿using Hexagon.Application.Domain.Ports.Inbound.GetTodayQuoteService;
-using Hexagon.Application.UseCases.GetTodayQuoteUseCase;
 using Hexagon.Console.Adapters;
 using Hexagon.Infrastructure.Repository;
 
@@ -8,13 +7,12 @@ Console.WriteLine("Welcome! I say that:");
 // Instantiate the right-side adapter(s) - Outbound / Driven
 var dataSource = new QuotesDataSourceFileAdapter(@".\Quotes.json");
 var repository = new QuotesRepository(dataSource);
-var service = new GetTodayQuote(repository);
 
 // Instantiate the hexagon (with right-side adapter)
-var useCase = new GetTodayQuoteUseCase(service);
+var service = new GetTodayQuote(repository);
 
 // Instantiate the left-side adapter(s) - Inbound/ Driver
-var consoleAdapter = new ConsoleAdapter(useCase);
+var consoleAdapter = new ConsoleAdapter(service);
 
 // App logic is only using left-side adapter(s).
 Console.WriteLine("---");

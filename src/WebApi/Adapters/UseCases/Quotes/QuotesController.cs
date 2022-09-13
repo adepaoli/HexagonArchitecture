@@ -1,8 +1,8 @@
-using Hexagonal.WebApi.UseCases.Quotes.Queries;
+using Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hexagonal.WebApi.Adapters;
+namespace Hexagonal.WebApi.Adapters.UseCases.Quotes;
 
 [ApiController]
 [Route("[controller]")]

@@ -5,7 +5,7 @@ using Hexagon.Application.Domain.Ports.Outbound;
 using Moq;
 using Moq.AutoMock;
 
-namespace Hexagon.Application.Tests.Domain.Ports.Inbound.GetTodayQuoteService;
+namespace Hexagon.Application.Tests.Domain.Ports.Inbound.GetQuotesService;
 
 public class GetQuotesTests
 {

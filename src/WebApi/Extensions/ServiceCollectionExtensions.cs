@@ -1,8 +1,6 @@
 ﻿using Hexagon.Application.Domain.Ports.Inbound.GetQuotesService;
 using Hexagon.Application.Domain.Ports.Inbound.GetTodayQuoteService;
 using Hexagon.Application.Domain.Ports.Outbound;
-using Hexagon.Application.UseCases.GetQuotesUseCase;
-using Hexagon.Application.UseCases.GetTodayQuoteUseCase;
 using Hexagon.Infrastructure.Repository;
 using MediatR;
 using MediatR.Extensions.FluentValidation.AspNetCore;
@@ -40,10 +38,6 @@ namespace Hexagonal.WebApi.Extensions
             services.AddTransient<IGetTodayQuote, GetTodayQuote>();
 
             services.AddTransient<IQuotesRepository, QuotesRepository>();
-
-            services.AddTransient<IGetQuotesUseCase, GetQuotesUseCase>();
-            services.AddTransient<IGetTodayQuoteUseCase, GetTodayQuoteUseCase>();
-
             return services;
         }
     }

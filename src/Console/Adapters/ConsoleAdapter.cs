@@ -1,14 +1,14 @@
-﻿using Hexagon.Application.UseCases.GetTodayQuoteUseCase;
+﻿using Hexagon.Application.Domain.Ports.Inbound.GetTodayQuoteService;
 
 namespace Hexagon.Console.Adapters
 {
     public class ConsoleAdapter
     {
-        private readonly IGetTodayQuoteUseCase _useCase;
+        private readonly IGetTodayQuote _service;
 
-        public ConsoleAdapter(IGetTodayQuoteUseCase useCase)
+        public ConsoleAdapter(IGetTodayQuote service)
         {
-            _useCase = useCase;
+            _service = service;
         }
 
         public async Task ShowTodayQuote()
@@ -16,11 +16,11 @@ namespace Hexagon.Console.Adapters
             // Adapt from the infrastructure to the domain
 
             // Call the business logic
-            var response = await _useCase.Execute();
+            var response = await _service.Execute();
 
             // Adapt from domain to infrastructure
-            var text = response.Quote.Text;
-            var author = response.Quote.Author;
+            var text = response.Text;
+            var author = "Author:" + response.Author;
 
             System.Console.WriteLine($"{text}\n\n{author}");
         }
