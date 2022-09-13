@@ -1,7 +1,8 @@
 ﻿using Hexagon.Application.Domain.Ports.Inbound.GetQuotesService;
+using Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetTodayQuote;
 using MediatR;
 
-namespace Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries
+namespace Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetQuotes
 {
     public class GetQuotesQuery : IRequest<GetQuotesResponse>
     {

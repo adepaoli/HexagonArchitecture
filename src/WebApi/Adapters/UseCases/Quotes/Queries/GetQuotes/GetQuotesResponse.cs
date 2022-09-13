@@ -1,4 +1,6 @@
-﻿namespace Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries;
+﻿using Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetTodayQuote;
+
+namespace Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetQuotes;
 
 public class GetQuotesResponse
 {

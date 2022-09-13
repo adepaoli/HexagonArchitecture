@@ -1,4 +1,5 @@
-using Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries;
+using Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetQuotes;
+using Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetTodayQuote;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
