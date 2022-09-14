@@ -10,21 +10,23 @@ namespace Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetQuotes
 
     public class GetQuotesQueryHandler : IRequestHandler<GetQuotesQuery, GetQuotesResponse>
     {
-        private readonly IGetQuotes _domainService;
+        private readonly IGetQuotes _getQuotesService;
 
-        public GetQuotesQueryHandler(IGetQuotes domainService)
+        public GetQuotesQueryHandler(IGetQuotes getQuotesService)
         {
-            _domainService = domainService;
+            _getQuotesService = getQuotesService;
         }
 
         public async Task<GetQuotesResponse> Handle(GetQuotesQuery request, CancellationToken cancellationToken)
         {
-            // Adapt from the infrastructure to the domain
+            // 1. Validate infrastructure input
 
-            // Call the business logic
-            var quotes = await _domainService.Execute();
+            // 2. Adapt from the infrastructure to the domain
 
-            // Adapt from domain to infrastructure
+            // 3. Call the business logic
+            var quotes = await _getQuotesService.Execute();
+
+            // 4. Adapt from domain to infrastructure
             var response = new GetQuotesResponse();
             quotes.ToList().ForEach(x => response.Quotes.Add(new GetTodayQuoteResponse
             {

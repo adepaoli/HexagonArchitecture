@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Hexagon.Application.Domain.Models.Quotes;
-using Hexagon.Application.Domain.Ports.Outbound;
 using Hexagon.Infrastructure.Repository;
+using Hexagon.Infrastructure.Services;
 using Moq;
 using Moq.AutoMock;
 
@@ -35,7 +35,7 @@ public class QuotesRepositoryTests
     public async Task ShouldGiveQuotesWhenAskedForItFromLocalFile()
     {
         // Arrange
-        var dataSource = new QuotesDataSourceFileAdapter(@".\Quotes.json");
+        var dataSource = new QuotesDataSourceFileProvider(@".\Quotes.json");
 
         var mocker = new AutoMocker();
 

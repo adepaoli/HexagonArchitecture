@@ -1,14 +1,13 @@
 ﻿using Hexagon.Application.Domain.Models.Quotes;
-using Hexagon.Application.Domain.Ports.Outbound;
 using System.Text.Json;
 
-namespace Hexagon.Infrastructure.Repository
+namespace Hexagon.Infrastructure.Services
 {
-    public class QuotesDataSourceFileAdapter : IQuotesDataSource
+    public class QuotesDataSourceFileProvider : IQuotesDataSource
     {
         private readonly string _filePath;
 
-        public QuotesDataSourceFileAdapter(string filePath)
+        public QuotesDataSourceFileProvider(string filePath)
         {
             _filePath = filePath;
         }

@@ -1,5 +1,6 @@
 ﻿using Hexagon.Application.Domain.Models.Quotes;
 using Hexagon.Application.Domain.Ports.Outbound;
+using Hexagon.Infrastructure.Services;
 
 namespace Hexagon.Infrastructure.Repository
 {

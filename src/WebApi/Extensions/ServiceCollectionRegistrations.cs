@@ -2,13 +2,14 @@
 using Hexagon.Application.Domain.Ports.Inbound.GetTodayQuoteService;
 using Hexagon.Application.Domain.Ports.Outbound;
 using Hexagon.Infrastructure.Repository;
+using Hexagon.Infrastructure.Services;
 using MediatR;
 using MediatR.Extensions.FluentValidation.AspNetCore;
 using System.Reflection;
 
 namespace Hexagonal.WebApi.Extensions
 {
-    public static class ServiceCollectionExtensions
+    public static class ServiceCollectionRegistrations
     {
         public static IServiceCollection AddPackages(this IServiceCollection services)
         {
@@ -27,10 +28,10 @@ namespace Hexagonal.WebApi.Extensions
 
         public static IServiceCollection AddDependecies(this IServiceCollection services)
         {
-            var domainAssembly = typeof(QuotesDataSourceFileAdapter).GetTypeInfo().Assembly;
+            var domainAssembly = typeof(QuotesDataSourceFileProvider).GetTypeInfo().Assembly;
             var domainAssemblyPath = Directory.GetParent(domainAssembly.Location);
 
-            var dataSource = new QuotesDataSourceFileAdapter(@$"{domainAssemblyPath}\Quotes.json");
+            var dataSource = new QuotesDataSourceFileProvider(@$"{domainAssemblyPath}\Quotes.json");
 
             services.AddSingleton<IQuotesDataSource>(dataSource);
             

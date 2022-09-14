@@ -9,21 +9,23 @@ namespace Hexagonal.WebApi.Adapters.UseCases.Quotes.Queries.GetTodayQuote
 
     public class GetTodayQuoteQueryHandler : IRequestHandler<GetTodayQuoteQuery, GetTodayQuoteResponse>
     {
-        private readonly IGetTodayQuote _domainService;
+        private readonly IGetTodayQuote _getTodayQuoteService;
 
-        public GetTodayQuoteQueryHandler(IGetTodayQuote domainService)
+        public GetTodayQuoteQueryHandler(IGetTodayQuote getTodayQuoteService)
         {
-            _domainService = domainService;
+            _getTodayQuoteService = getTodayQuoteService;
         }
 
         public async Task<GetTodayQuoteResponse> Handle(GetTodayQuoteQuery request, CancellationToken cancellationToken)
         {
-            // Adapt from the infrastructure to the domain
+            // 1. Validate infrastructure input
 
-            // Call the business logic
-            var todayQuote = await _domainService.Execute();
+            // 2. Adapt from the infrastructure to the domain
 
-            // Adapt from domain to infrastructure
+            // 3. Call the business logic
+            var todayQuote = await _getTodayQuoteService.Execute();
+
+            // 4. Adapt from domain to infrastructure
             return new GetTodayQuoteResponse()
             {
                 Text = todayQuote.Text,
